@@ -4,64 +4,157 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pixel Record and Format</title>
+  <title>PixelCapture: Record and Format</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="codemirror/lib/codemirror.css">
   <link href="index.css" rel="stylesheet">
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row">
+        <!-- top panel -->
+        <div class="row bg-secondary">
             <div class="col">
-                <div class="row">
-                    <div class="col">Zoom</div>
-                    <div class="col">Points</div>
-                    <div class="col">Rectangle</div>
-                    <div class="col">Min</div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div id="canvas">
-                    <div id="image-container"><img id="image" alt="user image" src="Jackal-Stage1.png"></div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="row">
-                    <div class="col">Top</div>
-                    <div class="col">Bottom</div>
-                    <div class="col">Left</div>
-                    <div class="col">Right</div>
-                    <div class="col">Height</div>
-                    <div class="col">Width</div>
-                </div>
                 <div class="row">
                     <div class="col">
-                        <div class="row">
-                            <div class="col">Top</div>
-                            <div class="col">Bottom</div>
-                            <div class="col">Left</div>
-                            <div class="col">Right</div>
-                            <div class="col">Height</div>
-                            <div class="col">Width</div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary">100%</button>
+                            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">200%</a>
+                              <a class="dropdown-item" href="#">300%</a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col">
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-primary active">
+                              <input type="radio" name="options" id="option1" autocomplete="off" checked> Points
+                            </label>
+                            <label class="btn btn-outline-primary">
+                              <input type="radio" name="options" id="option2" autocomplete="off"> Rectangle
+                            </label>
                         </div>
-                        <div class="row">
-                            <div class="col">P0:</div>
-                            <div class="col">120</div>
-                            <div class="col">50</div>
-                            <div class="col">75</div>
-                            <div class="col">95</div>
-                            <div class="col">50</div>
-                            <div class="col">50</div>
+                    </div>
+
+                    <div class="col">
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-primary active">
+                              <input type="radio" name="options" id="option1" autocomplete="off" checked> Primary
+                            </label>
+                            <label class="btn btn-outline-primary">
+                              <input type="radio" name="options" id="option2" autocomplete="off"> Secondary
+                            </label>
                         </div>
-                        <div class="row">
-                            <div class="col">Format</div>
+                    </div>
+                    <div class="col">
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-outline-primary">
+                              <input type="radio" name="options" id="option1" autocomplete="off" checked> Min
+                            </label>
+                            <label class="btn btn-primary acive">
+                              <input type="radio" name="options" id="option2" autocomplete="off"> Max
+                            </label>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- top panel -->
+        <div class="row">
+            <!-- image canvas -->
+            <div class="col bg-dark">
+                <div id="canvas">
+                    <div id="image-container"><img id="image" alt="user image" src="Jackal-Stage1.png"></div>
+                </div>
+            </div>
+            <!-- image canvas -->
+            <!-- side panel -->
+            <div class="col bg-secondary">
+                <!-- side panel: options -->
+                <div class="row">
+                    <div class="col">
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-primary acive">
+                              <input type="radio" name="options" id="option1" autocomplete="off" checked> Top
+                            </label>
+                            <label class="btn btn-primary acive">
+                              <input type="radio" name="options" id="option2" autocomplete="off"> Bottom
+                            </label>
+                            <label class="btn btn-primary acive">
+                                <input type="radio" name="options" id="option2" autocomplete="off"> Left
+                            </label>
+                            <label class="btn btn-primary acive">
+                                <input type="radio" name="options" id="option2" autocomplete="off"> Right
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- side panel: options -->
+                <!-- side panel: recorder -->
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <table class="table table-striped table-hover table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Top</th>
+                                        <th scope="col">Bottom</th>
+                                        <th scope="col">Left</th>
+                                        <th scope="col">Right</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row">1</th>
+                                        <td>12</td>
+                                        <td>42</td>
+                                        <td>33</td>
+                                        <td>50</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><button class="btn btn-primary" type="submit">Format</button></div>
+                            <div class="col"><button class="btn btn-primary" type="submit">Reset</button></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- side panel: recorder -->
+                <!-- side panel: formatter -->
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Preview</h5>
+                                        <textarea id="editor">//hello world</textarea>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><button class="btn btn-primary" type="submit">Download js</button></div>
+                            <div class="col"><button class="btn btn-primary" type="submit">Back to recorder</button></div> 
+                        </div>
+                    </div>
+                </div>
+                <!-- side panel: formatter -->
+            </div>
+            <!-- side panel -->
+        </div>
     </div>
-</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="codemirror/lib/codemirror.js"></script>
+<script src="codemirror/mode/javascript/javascript.js"></script>
 <script src="index.js"></script>
+</body>
 </html>
