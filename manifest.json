@@ -1,0 +1,16 @@
+{
+    "name": "Pixel Recorder and Format",
+    "description": "Collect pixel info and output as javascript",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_title": "Default Title",
+      "default_popup": "popup.html"
+    },
+    "permissions": [
+      "tabs"
+    ]
+}
