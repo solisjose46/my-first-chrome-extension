@@ -1,5 +1,5 @@
 var topPanelBtns = document.getElementsByClassName('btnJS');
-var activeClass = 'btn btn-primary active btnJS';
+var activeClass = 'btn btn-primary btnJS';
 var inactiveClass = 'btn btn-outline-primary btnJS';
 
 for(var i = 0; i < topPanelBtns.length; i++){
@@ -13,7 +13,7 @@ var editor = CodeMirror.fromTextArea(document.getElementById('editor'),{
     readOnly: true
 });
 
-function toggleBtn(){
+function toggleBtn(e){
     if(this.id == 'Points'){
         document.getElementById('Rectangles').className = inactiveClass;
         this.className = activeClass;
@@ -37,6 +37,19 @@ function toggleBtn(){
     else if(this.id == 'Max'){
         document.getElementById('Min').className = inactiveClass;
         this.className = activeClass;
+    }
+    else if(this.id == 'Top' || this.id == 'Bottom' || this.id == 'Left' || this.id == 'Right' || this.id == 'Height' || this.id == 'Width'){
+        console.log(this.id);
+        if(this.className == activeClass){
+            console.log('active -> inactive');
+            this.className = inactiveClass;
+            //remove cell
+        }
+        else{
+            console.log('inactive -> active');
+            this.className = activeClass;
+            //do stuff; add cell
+        }
     }
 }
 
