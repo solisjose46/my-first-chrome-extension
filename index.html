@@ -39,30 +39,30 @@
             </div>
             <div class="col">
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary active">
-                      <input type="radio" name="options" id="option1" autocomplete="off" checked> Points
+                    <label id="Points" class="btn btn-primary active btnJS">
+                      <input type="radio" name="options" id="option1" autocomplete="off"> Points
                     </label>
-                    <label class="btn btn-outline-primary">
-                      <input type="radio" name="options" id="option2" autocomplete="off"> Rectangle
+                    <label id="Rectangles" class="btn btn-outline-primary btnJS">
+                      <input type="radio" name="options" id="option2" autocomplete="off"> Rectangles
                     </label>
                 </div>
             </div>
             <div class="col">
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-primary active">
+                    <label id="Primary" class="btn btn-primary active btnJS">
                       <input type="radio" name="options" id="option1" autocomplete="off" checked> Primary
                     </label>
-                    <label class="btn btn-outline-primary">
+                    <label id="Secondary" class="btn btn-outline-primary btnJS">
                       <input type="radio" name="options" id="option2" autocomplete="off"> Secondary
                     </label>
                 </div>
             </div>
             <div class="col">
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-outline-primary">
+                    <label id="Min" class="btn btn-outline-primary btnJS">
                       <input type="radio" name="options" id="option1" autocomplete="off" checked> Min
                     </label>
-                    <label class="btn btn-primary acive">
+                    <label id="Max" class="btn btn-primary acive btnJS">
                       <input type="radio" name="options" id="option2" autocomplete="off"> Max
                     </label>
                 </div>
@@ -71,7 +71,7 @@
     </div>
     <!-- top panel -->
     <!-- side panel -->
-    <div class="bg-secondary rounded col-4 offset-8 position-fixed mt-5">
+    <div class="bg-secondary rounded col-6 offset-6 position-fixed mt-5">
         <!-- side panel: options -->
         <div class="row">
             <div class="col">
@@ -88,23 +88,32 @@
                     <label class="btn btn-primary acive">
                         <input type="radio" name="options" id="option2" autocomplete="off"> Right
                     </label>
+                    <label class="btn btn-primary acive">
+                        <input type="radio" name="options" id="option2" autocomplete="off"> Height
+                    </label>
+                    <label class="btn btn-primary acive">
+                        <input type="radio" name="options" id="option2" autocomplete="off"> Width
+                    </label>
                 </div>
             </div>
+            <div class="col"><button class="btn btn-primary" type="submit">Make table</button></div>
         </div>
         <!-- side panel: options -->
         <!-- side panel: recorder -->
         <div class="row">
             <div class="col">
                 <div class="row">
-                    <div class="col">
+                    <div class="col" id="table-here">
                         <table class="bg-white table table-striped table-hover table-bordered">
                             <thead>
-                              <tr>
+                              <tr id="options">
                                 <th scope="col">#</th>
                                 <th scope="col">Top</th>
                                 <th scope="col">Bottom</th>
                                 <th scope="col">Left</th>
                                 <th scope="col">Right</th>
+                                <th scope="col">Height</th>
+                                <th scope="col">Width</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -114,6 +123,8 @@
                                 <td>42</td>
                                 <td>33</td>
                                 <td>50</td>
+                                <td>69</td>
+                                <td>75</td>
                               </tr>
                             </tbody>
                           </table>
