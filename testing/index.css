@@ -1,0 +1,17 @@
+#top-panel, #side-panel{
+    position: fixed;
+    height: fit-content;
+    width: fit-content;
+
+}
+#top-panel{
+    left: 200px;
+    top: 0px;
+}
+#side-panel{
+    left: 300px;
+    top: 100px;
+}
+#top-panel:hover, #side-panel:hover{
+    cursor: move;
+}
