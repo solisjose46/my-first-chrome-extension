@@ -19,6 +19,7 @@ function TopPanelCollapse(collapse){
         document.getElementById('group3').remove();
     }
 }
+
 function SidePanelCollapse(collapse){
     document.getElementById(collapse).className = activeClass;
     if(collapse == 'Min' && panelHtml.collapsed == false){
@@ -34,6 +35,7 @@ function SidePanelCollapse(collapse){
         document.getElementById('Min').className = inactiveClass;
     }
 }
+
 function changeOptions(option){
     document.getElementById(option).className = activeClass;
     var table = document.getElementById('table-options');
@@ -55,6 +57,7 @@ function changeOptions(option){
 
     }
 }
+
 function changeTheme(theme){
     document.getElementById(theme).className = activeClass;
     if(theme == 'Primary'){

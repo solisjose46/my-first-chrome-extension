@@ -142,14 +142,25 @@ class Point{
     }
 }
 
-//
 function createPoint(e){
     e.preventDefault();
     var canvas = document.getElementById('canvas');
     var top = parseInt(window.getComputedStyle(canvas).top.replace('px', ''));
     var left = parseInt(window.getComputedStyle(canvas).left.replace('px', ''));
-    console.log(e.screenX - left);
-    console.log(e.screenY - top); //issues with this measurement
 
+    // var newTop = e.pageY - top;
+    // var newBottom = newTop - canvas.style.height.replace('px', );
+    // var newLeft = e.pageX - left;
+    // var newRight = newLeft - window.innerWidth;
+
+    // console.log('top: ' + newTop);
+    // console.log('bottom: ' + newBottom);
+    // console.log('left: ' + newLeft);
+    // console.log('right: ' + newRight);
+
+    console.log(parseInt(window.getComputedStyle(canvas).width.replace('px', '')));
+
+    //left off here
+    
     //var point = new Point()
 }
