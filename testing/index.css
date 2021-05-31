@@ -15,3 +15,32 @@
 #top-panel:hover, #side-panel:hover{
     cursor: move;
 }
+
+#image-container{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+}
+#image-container:hover{
+    cursor: pointer;
+}
+#canvas{
+    display: block;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    left: 50px;
+}
+#canvas:hover{
+    cursor: crosshair;
+}
+.point{
+    display: block;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+}
+.point:hover{
+    cursor: move;
+}

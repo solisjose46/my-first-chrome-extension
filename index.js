@@ -1,58 +1,56 @@
-var topPanelBtns = document.getElementsByClassName('btnJS');
-var activeClass = 'btn btn-primary btnJS';
-var inactiveClass = 'btn btn-outline-primary btnJS';
+//make html elements draggable
+dragElement(document.getElementById('top-panel'));
+dragElement(document.getElementById('side-panel'));
 
-for(var i = 0; i < topPanelBtns.length; i++){
-    topPanelBtns[i].addEventListener('click', toggleBtn);
+//since points is the default
+//optionsHTML.height = document.getElementById('Height');
+//optionsHTML.width = document.getElementById('Width');
+//document.getElementById('Height').remove();
+//document.getElementById('Width').remove();
+
+for(var i=0; i<buttons.length; i++){
+    buttons[i].addEventListener('click', clicked);
 }
 
-var editor = CodeMirror.fromTextArea(document.getElementById('editor'),{
-    mode: "javascript",
-    theme: "default",
-    lineNumbers: true,
-    readOnly: true
-});
-
-function toggleBtn(e){
-    if(this.id == 'Points'){
-        document.getElementById('Rectangles').className = inactiveClass;
-        this.className = activeClass;
-    }
-    else if(this.id == 'Rectangles'){
-        document.getElementById('Points').className = inactiveClass;
-        this.className = activeClass;
+function clicked(){
+    if(this.id == 'Points' || this.id == 'Rectangles'){
+        changeOptions(this.id);
     }
     else if(this.id == 'Primary'){
-        document.getElementById('Secondary').className = inactiveClass;
-        this.className = activeClass;
-    }
-    else if(this.id == 'Secondary'){
-        document.getElementById('Primary').className = inactiveClass;
-        this.className = activeClass;
-    }
-    else if(this.id == 'Min'){
-        document.getElementById('Max').className = inactiveClass;
-        this.className = activeClass;
-    }
-    else if(this.id == 'Max'){
-        document.getElementById('Min').className = inactiveClass;
-        this.className = activeClass;
-    }
-    else if(this.id == 'Top' || this.id == 'Bottom' || this.id == 'Left' || this.id == 'Right' || this.id == 'Height' || this.id == 'Width'){
-        console.log(this.id);
         if(this.className == activeClass){
-            console.log('active -> inactive');
             this.className = inactiveClass;
-            //remove cell
+            document.getElementById('Secondary').className = activeClass;
         }
         else{
-            console.log('inactive -> active');
             this.className = activeClass;
-            //do stuff; add cell
+            document.getElementById('Secondary').className = inactiveClass;
         }
     }
-}
-
-function showOptions(){
-    
+    else if(this.id == 'Secondary'){
+        if(this.className == activeClass){
+            this.className = inactiveClass;
+            document.getElementById('Primary').className = activeClass;
+        }
+        else{
+            this.className = activeClass;
+            document.getElementById('Primary').className = inactiveClass;
+        }
+    }
+    else if(this.id == 'Min' || this.id == 'Max'){
+        SidePanelCollapse(this.id);
+    }
+    else if(this.id == 'Plus' || this.id == 'Minus'){
+        TopPanelCollapse(this.id);
+    }
+    else if(this.id == 'Top' || this.id == 'Bottom' || this.id == 'Left' || this.id == 'Right' || this.id == 'Height' || this.id == 'Width'){
+        if(this.className == activeClass){
+            this.className = inactiveClass;
+        }
+        else{
+            this.className = activeClass;
+        }
+    }
+    else if(this.id == 'make-table'){
+        MakeTable();
+    }
 }

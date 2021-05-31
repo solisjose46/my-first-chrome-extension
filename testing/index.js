@@ -3,10 +3,10 @@ dragElement(document.getElementById('top-panel'));
 dragElement(document.getElementById('side-panel'));
 
 //since points is the default
-//optionsHTML.height = document.getElementById('Height');
-//optionsHTML.width = document.getElementById('Width');
-//document.getElementById('Height').remove();
-//document.getElementById('Width').remove();
+optionsHTML.height = document.getElementById('Height');
+optionsHTML.width = document.getElementById('Width');
+document.getElementById('Height').remove();
+document.getElementById('Width').remove();
 
 for(var i=0; i<buttons.length; i++){
     buttons[i].addEventListener('click', clicked);
